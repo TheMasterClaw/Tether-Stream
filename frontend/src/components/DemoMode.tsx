@@ -369,15 +369,13 @@ export function DemoMode() {
             <ArrowRight className="w-5 h-5" />
           </Link>
           
-          <a
-            href="https://faucet.circle.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/app/create"
             className="px-8 py-4 bg-white/10 text-white rounded-xl font-semibold hover:bg-white/20 transition-all inline-flex items-center gap-2"
           >
             Get Test USDT
             <ExternalLink className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

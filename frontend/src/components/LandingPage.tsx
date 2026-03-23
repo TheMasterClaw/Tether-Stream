@@ -15,7 +15,9 @@ import {
   Bot,
   Cpu,
   DollarSign,
-  TrendingUp
+  TrendingUp,
+  Menu,
+  X
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -237,6 +239,7 @@ const SEO = () => {
 // ==========================================
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -244,9 +247,22 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handler = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+
+  const navLinks = [
+    { href: '#features', label: 'Features' },
+    { href: '#how-it-works', label: 'How It Works' },
+    { href: '#stats', label: 'Stats' },
+  ];
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'glass-nav shadow-lg shadow-black/20' : 'bg-transparent'
+      scrolled || mobileOpen ? 'glass-nav shadow-lg shadow-black/20' : 'bg-transparent'
     }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -256,14 +272,52 @@ const Navigation = () => {
               TetherStream
             </span>
           </Link>
+
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-gray-400 hover:text-white transition-colors font-medium">Features</a>
-            <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors font-medium">How It Works</a>
-            <a href="#stats" className="text-gray-400 hover:text-white transition-colors font-medium">Stats</a>
+            {navLinks.map(link => (
+              <a key={link.href} href={link.href} className="text-gray-400 hover:text-white transition-colors font-medium">{link.label}</a>
+            ))}
             <Link to="/app" className="btn-primary text-sm">
               Launch App <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+
+          {/* Mobile hamburger button */}
+          <button
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+            onClick={() => setMobileOpen(prev => !prev)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile dropdown menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="container-custom py-4 border-t border-white/10 flex flex-col gap-3">
+          {navLinks.map(link => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-gray-400 hover:text-white transition-colors font-medium py-2 px-3 rounded-lg hover:bg-white/5"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+          <Link
+            to="/app"
+            className="btn-primary text-sm mt-2 justify-center"
+            onClick={() => setMobileOpen(false)}
+          >
+            Launch App <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </nav>

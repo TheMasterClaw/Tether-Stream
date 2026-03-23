@@ -134,7 +134,7 @@ export function WalletDashboard() {
           </h3>
           <ol className="text-left text-gray-400 space-y-3 list-decimal list-inside">
             <li className="hover:text-white transition-colors">Connect your wallet (Base Sepolia)</li>
-            <li className="hover:text-white transition-colors">Get test USDT from the <a href="https://faucet.circle.com/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-cta)] hover:underline inline-flex items-center gap-1">Circle Faucet <ExternalLink className="w-3 h-3" /></a></li>
+            <li className="hover:text-white transition-colors">Get test USDT from the <Link to="/app/create" className="text-[var(--color-cta)] hover:underline inline-flex items-center gap-1">TetherStream Faucet</Link></li>
             <li className="hover:text-white transition-colors">Create your first payment stream</li>
             <li className="hover:text-white transition-colors">Explore AI services in the marketplace</li>
           </ol>
@@ -374,10 +374,8 @@ export function WalletDashboard() {
           <p className="text-sm text-gray-400">Browse AI services</p>
         </Link>
 
-        <a 
-          href="https://faucet.circle.com/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link 
+          to="/app/create"
           className="p-6 bg-gradient-to-br from-teal-500/10 to-pink-500/10 border border-teal-500/20 rounded-2xl hover:border-teal-500/40 transition-all group cursor-pointer block hover:shadow-lg hover:shadow-teal-500/10"
         >
           <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
@@ -390,7 +388,7 @@ export function WalletDashboard() {
               <ArrowUpRight className="w-3 h-3" />
             </span>
           </p>
-        </a>
+        </Link>
       </div>
     </div>
   );
