@@ -1,17 +1,15 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { 
-  Zap, 
-  Shield, 
-  Clock, 
-  ArrowRight, 
-  CheckCircle, 
+import { useEffect, useRef, useState } from 'react';
+import {
+  Zap,
+  Shield,
+  Clock,
+  ArrowRight,
+  CheckCircle,
   Wallet,
   Activity,
   Globe,
   Play,
-  BarChart3,
   Lock,
-  Sparkles,
   Bot,
   Cpu,
   DollarSign,

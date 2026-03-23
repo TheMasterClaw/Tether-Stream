@@ -14,8 +14,7 @@ import {
   Plus,
   ChevronRight,
   TrendingUp,
-  RefreshCw,
-  ExternalLink
+  RefreshCw
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { LiveStreamVisualization } from './LiveStreamVisualization';
@@ -414,13 +413,13 @@ function FeatureCard({
   color: 'orange' | 'blue' | 'green';
 }) {
   const colorClasses = {
-    emerald: 'from-[var(--color-cta)]/20 to-emerald-500/20 border-[var(--color-cta)]/30',
+    orange: 'from-[var(--color-cta)]/20 to-emerald-500/20 border-[var(--color-cta)]/30',
     blue: 'from-[var(--color-primary)]/20 to-blue-500/20 border-[var(--color-primary)]/30',
     green: 'from-green-500/20 to-emerald-500/20 border-green-500/30',
   };
 
   const iconColors = {
-    emerald: 'text-[var(--color-cta)]',
+    orange: 'text-[var(--color-cta)]',
     blue: 'text-[var(--color-primary)]',
     green: 'text-green-400',
   };

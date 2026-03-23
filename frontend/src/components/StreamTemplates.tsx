@@ -249,25 +249,25 @@ export function StreamTemplates() {
               <CostRow
                 service="AI API"
                 traditional="$20/month"
-                paystream="$0.05/hour used"
+                tetherstream="$0.05/hour used"
                 savings="Up to 90%"
               />
               <CostRow
                 service="GPU Compute"
                 traditional="$500/month"
-                paystream="$2/hour used"
+                tetherstream="$2/hour used"
                 savings="Up to 70%"
               />
               <CostRow
                 service="Cloud Storage"
                 traditional="$10/month"
-                paystream="$0.20/day used"
+                tetherstream="$0.20/day used"
                 savings="Up to 40%"
               />
               <CostRow
                 service="Data API"
                 traditional="$100/month"
-                paystream="$1/hour used"
+                tetherstream="$1/hour used"
                 savings="Up to 80%"
               />
             </tbody>
@@ -296,17 +296,17 @@ function BenefitCard({ title, description, icon: Icon }: {
   );
 }
 
-function CostRow({ service, traditional, paystream, savings }: {
+function CostRow({ service, traditional, tetherstream, savings }: {
   service: string;
   traditional: string;
-  paystream: string;
+  tetherstream: string;
   savings: string;
 }) {
   return (
     <tr className="border-b border-white/5 last:border-0">
       <td className="py-4 text-white">{service}</td>
       <td className="py-4 text-gray-400">{traditional}</td>
-      <td className="py-4 text-[var(--color-cta)]">{paystream}</td>
+      <td className="py-4 text-[var(--color-cta)]">{tetherstream}</td>
       <td className="py-4">
         <span className="px-2 py-1 bg-green-500/20 text-green-400 rounded-lg text-xs font-medium">
           {savings}
