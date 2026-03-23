@@ -4,11 +4,9 @@
   "buildCommand": "cd frontend && npm run build",
   "outputDirectory": "frontend/dist",
   "installCommand": "npm install",
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/landing", "dest": "/landing.html" },
-    { "src": "/app", "dest": "/index.html" },
-    { "src": "/", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/landing", "destination": "/landing.html" },
+    { "source": "/app", "destination": "/index.html" }
   ],
   "headers": [
     {
