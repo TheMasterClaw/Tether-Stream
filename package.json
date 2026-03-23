@@ -11,6 +11,7 @@
     "deploy:baseSepolia": "hardhat run scripts/deploy.js --network baseSepolia",
     "node": "hardhat node",
     "coverage": "hardhat coverage",
+    "build": "cd frontend && npm install && npm run build",
     "frontend:dev": "cd frontend && npm run dev",
     "frontend:build": "cd frontend && npm run build",
     "frontend:preview": "cd frontend && npm run preview",
