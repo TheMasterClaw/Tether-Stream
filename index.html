@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayStream - USDT Micropayment Streaming</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .logo { font-size: 4rem; margin-bottom: 1rem; }
+        h1 { font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(90deg, #00d4ff, #7b2cbf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { font-size: 1.2rem; color: #888; max-width: 600px; line-height: 1.6; margin-bottom: 2rem; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 900px; width: 100%; margin: 2rem 0; }
+        .feature { background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .feature h3 { color: #00d4ff; margin-bottom: 0.5rem; }
+        .status { background: rgba(0,212,255,0.1); padding: 1rem 2rem; border-radius: 8px; border: 1px solid #00d4ff; margin-top: 2rem; }
+        .github { margin-top: 2rem; color: #888; }
+        .github a { color: #00d4ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="logo">💸</div>
+    <h1>PayStream</h1>
+    <p>USDT micropayment streaming for AI agents. Pay by the second, not by the month.</p>
+    
+    <div class="features">
+        <div class="feature">
+            <h3>⚡ Real-time Streaming</h3>
+            <p>Stream USDT payments continuously as services are consumed</p>
+        </div>
+        <div class="feature">
+            <h3>🤖 Agent Wallets</h3>
+            <p>Each AI agent gets its own smart contract wallet</p>
+        </div>
+        <div class="feature">
+            <h3>🔒 Secure Escrow</h3>
+            <p>Funds locked until service delivery confirmed</p>
+        </div>
+    </div>
+    
+    <div class="status">
+        <strong>Status:</strong> Smart Contracts Deployed | Frontend Coming Soon
+    </div>
+    
+    <div class="github">
+        <p>Built for <a href="https://dorahacks.io/hackathon/hackathon-galactica-wdk-2026-01/buidl">Tether Hackathon</a></p>
+        <p><a href="https://github.com/TheMasterClaw/tether-hackathon-project">View on GitHub</a></p>
+    </div>
+</body>
+</html>

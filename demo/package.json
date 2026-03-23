@@ -1,0 +1,8 @@
+{
+  "name": "paystream-demo",
+  "version": "1.0.0",
+  "description": "Interactive demo for PayStream hackathon presentation",
+  "scripts": {
+    "demo": "./demo.sh"
+  }
+}

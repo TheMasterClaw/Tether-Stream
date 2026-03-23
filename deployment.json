@@ -1,0 +1,10 @@
+{
+  "network": "baseSepolia",
+  "chainId": 84532,
+  "usdt": "0x068e3C17A5C68906E42E0F28d281D8B8b1E48f8B",
+  "billingRegistry": "0xb623478107adB1b7153f4df72Fc7FC81A8440107",
+  "paymentStream": "0xDE900020CEA3F4ca1223a553D66179DF43f14Aa5",
+  "sampleAgentWallet": "0xBb8960cB40088f6020D2E5e0a880E630FAC5f884",
+  "deployer": "0xCA5AD2cD81ff9f4eFF6f66742706D831410403e3",
+  "timestamp": "2026-03-21T19:42:22.285Z"
+}
