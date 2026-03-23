@@ -54,18 +54,10 @@ export function useRealTimeStreams({ onStreamEvent, onBalanceUpdate }: RealTimeM
           const isOutgoing = event.sender?.toLowerCase() === address.toLowerCase();
 
           if (isIncoming && event.amount) {
-            addNotification({
-              type: 'incoming',
-              title: '📥 New Payment Stream!',
-              message: `Receiving ${formatUnits(event.amount, 6)} USDT for ${args.serviceId || 'service'}`,
-            });
+            addNotification('info', '📥 New Payment Stream!', `Receiving ${formatUnits(event.amount, 6)} USDT for ${args.serviceId || 'service'}`);
             setLiveStreamCount(prev => prev + 1);
           } else if (isOutgoing && event.amount) {
-            addNotification({
-              type: 'success',
-              title: '✅ Stream Created',
-              message: `Streaming ${formatUnits(event.amount, 6)} USDT to ${event.sender?.slice(0, 6)}...${event.sender?.slice(-4)}`,
-            });
+            addNotification('success', '✅ Stream Created', `Streaming ${formatUnits(event.amount, 6)} USDT to ${event.sender?.slice(0, 6)}...${event.sender?.slice(-4)}`);
             setLiveStreamCount(prev => prev + 1);
           }
         }
@@ -95,11 +87,7 @@ export function useRealTimeStreams({ onStreamEvent, onBalanceUpdate }: RealTimeM
         setRecentEvents(prev => [event, ...prev].slice(0, 50));
 
         if (isConnected && address && event.recipient?.toLowerCase() === address.toLowerCase() && event.amount) {
-          addNotification({
-            type: 'success',
-            title: '💰 Funds Withdrawn!',
-            message: `You received ${formatUnits(event.amount, 6)} USDT`,
-          });
+          addNotification('success', '💰 Funds Withdrawn!', `You received ${formatUnits(event.amount, 6)} USDT`);
         }
 
         onStreamEvent?.(event);
@@ -130,11 +118,7 @@ export function useRealTimeStreams({ onStreamEvent, onBalanceUpdate }: RealTimeM
         setRecentEvents(prev => [event, ...prev].slice(0, 50));
 
         if (isConnected && address && event.sender?.toLowerCase() === address.toLowerCase() && event.amount) {
-          addNotification({
-            type: 'warning',
-            title: '⚠️ Stream Cancelled',
-            message: `Stream cancelled. ${formatUnits(event.amount, 6)} USDT refunded.`,
-          });
+          addNotification('warning', '⚠️ Stream Cancelled', `Stream cancelled. ${formatUnits(event.amount, 6)} USDT refunded.`);
           setLiveStreamCount(prev => Math.max(0, prev - 1));
         }
 
@@ -163,11 +147,7 @@ export function useRealTimeStreams({ onStreamEvent, onBalanceUpdate }: RealTimeM
         setRecentEvents(prev => [event, ...prev].slice(0, 50));
 
         if (isConnected && address && event.recipient?.toLowerCase() === address.toLowerCase() && event.amount) {
-          addNotification({
-            type: 'info',
-            title: '✅ Stream Completed',
-            message: `Payment stream finished. Total received: ${formatUnits(event.amount, 6)} USDT`,
-          });
+          addNotification('info', '✅ Stream Completed', `Payment stream finished. Total received: ${formatUnits(event.amount, 6)} USDT`);
         }
 
         onStreamEvent?.(event);

@@ -26,6 +26,7 @@ interface Stream {
   endTime: bigint;
   ratePerSecond: bigint;
   isActive: boolean;
+  status?: number; // 0=Active, 1=Paused, 2=Cancelled, 3=Completed
   serviceId: string;
 }
 
@@ -139,6 +140,8 @@ export function ActiveStreams() {
 
   const { writeContractAsync: withdrawStream, isPending: isWithdrawing } = useWriteContract();
   const { writeContractAsync: cancelStream, isPending: isCancelling } = useWriteContract();
+  const { writeContractAsync: pauseStream, isPending: isPausing } = useWriteContract();
+  const { writeContractAsync: resumeStream, isPending: isResuming } = useWriteContract();
 
   const handleWithdraw = async (streamId: string) => {
     try {
@@ -180,10 +183,51 @@ export function ActiveStreams() {
       setTimeout(() => setSuccessMessage(null), 5000);
       refetchSender();
       refetchRecipient();
-      // Refresh stream details after cancellation
       setTimeout(fetchStreamDetails, 2000);
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : 'Cancellation failed';
+      setError(errorMessage);
+    }
+  };
+
+  const handlePause = async (streamId: string) => {
+    try {
+      setError(null);
+      setSuccessMessage(null);
+      
+      await pauseStream({
+        address: PAYMENT_STREAM_ADDRESS,
+        abi: PAYMENT_STREAM_ABI,
+        functionName: 'pauseStream',
+        args: [streamId as `0x${string}`],
+      });
+      
+      setSuccessMessage('Stream paused successfully!');
+      setTimeout(() => setSuccessMessage(null), 5000);
+      setTimeout(fetchStreamDetails, 2000);
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Pause failed';
+      setError(errorMessage);
+    }
+  };
+
+  const handleResume = async (streamId: string) => {
+    try {
+      setError(null);
+      setSuccessMessage(null);
+      
+      await resumeStream({
+        address: PAYMENT_STREAM_ADDRESS,
+        abi: PAYMENT_STREAM_ABI,
+        functionName: 'resumeStream',
+        args: [streamId as `0x${string}`],
+      });
+      
+      setSuccessMessage('Stream resumed successfully!');
+      setTimeout(() => setSuccessMessage(null), 5000);
+      setTimeout(fetchStreamDetails, 2000);
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Resume failed';
       setError(errorMessage);
     }
   };
@@ -208,7 +252,8 @@ export function ActiveStreams() {
 
   const filteredStreams = streams.filter((stream) => {
     if (filter === 'all') return true;
-    if (filter === 'active') return stream.isActive;
+    if (filter === 'active') return stream.isActive && stream.status !== 1; // Active and not paused
+    if (filter === 'paused') return stream.status === 1;
     if (filter === 'completed') return !stream.isActive;
     if (filter === 'incoming') return stream.recipient.toLowerCase() === address?.toLowerCase();
     if (filter === 'outgoing') return stream.sender.toLowerCase() === address?.toLowerCase();
@@ -257,6 +302,7 @@ export function ActiveStreams() {
             >
               <option value="all" className="bg-slate-800">All Streams</option>
               <option value="active" className="bg-slate-800">Active Only</option>
+              <option value="paused" className="bg-slate-800">Paused</option>
               <option value="completed" className="bg-slate-800">Completed</option>
               <option value="incoming" className="bg-slate-800">Incoming</option>
               <option value="outgoing" className="bg-slate-800">Outgoing</option>
@@ -342,11 +388,13 @@ export function ActiveStreams() {
                     <div className="text-right">
                       <p className="text-sm text-gray-400">Status</p>
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        stream.isActive 
-                          ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-                          : 'bg-gray-500/20 text-gray-400 border border-gray-500/30'
+                        stream.status === 1 
+                          ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                          : stream.isActive 
+                            ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                            : 'bg-gray-500/20 text-gray-400 border border-gray-500/30'
                       }`}>
-                        {stream.isActive ? 'Active' : 'Completed'}
+                        {stream.status === 1 ? 'Paused' : stream.isActive ? 'Active' : 'Completed'}
                       </span>
                     </div>
                   </div>
@@ -386,7 +434,23 @@ export function ActiveStreams() {
                   </div>
 
                   <div className="flex gap-2">
-                    {stream.isActive && isIncoming && available > 0n && (
+                    {stream.status === 1 && (isIncoming || isOutgoing) && (
+                      <button
+                        onClick={() => handleResume(stream.streamId)}
+                        disabled={isResuming}
+                        className="px-4 py-2 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded-lg font-medium hover:bg-yellow-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                      >
+                        {isResuming ? (
+                          <span className="flex items-center gap-2">
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            Resuming...
+                          </span>
+                        ) : (
+                          'Resume'
+                        )}
+                      </button>
+                    )}
+                    {stream.isActive && stream.status !== 1 && isIncoming && available > 0n && (
                       <button
                         onClick={() => handleWithdraw(stream.streamId)}
                         disabled={isWithdrawing}
@@ -402,7 +466,23 @@ export function ActiveStreams() {
                         )}
                       </button>
                     )}
-                    {stream.isActive && isOutgoing && (
+                    {stream.isActive && stream.status !== 1 && (isIncoming || isOutgoing) && (
+                      <button
+                        onClick={() => handlePause(stream.streamId)}
+                        disabled={isPausing}
+                        className="px-4 py-2 bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-lg font-medium hover:bg-amber-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                      >
+                        {isPausing ? (
+                          <span className="flex items-center gap-2">
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            Pausing...
+                          </span>
+                        ) : (
+                          'Pause'
+                        )}
+                      </button>
+                    )}
+                    {stream.isActive && stream.status !== 1 && isOutgoing && (
                       <button
                         onClick={() => handleCancel(stream.streamId)}
                         disabled={isCancelling}

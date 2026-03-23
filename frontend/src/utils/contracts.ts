@@ -35,6 +35,20 @@ export const PAYMENT_STREAM_ABI = [
   },
   {
     "inputs": [{ "name": "streamId", "type": "bytes32" }],
+    "name": "pauseStream",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "streamId", "type": "bytes32" }],
+    "name": "resumeStream",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "name": "streamId", "type": "bytes32" }],
     "name": "availableBalance",
     "outputs": [{ "name": "", "type": "uint256" }],
     "stateMutability": "view",
