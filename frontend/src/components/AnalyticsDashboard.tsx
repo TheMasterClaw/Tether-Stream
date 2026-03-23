@@ -232,8 +232,8 @@ export function AnalyticsDashboard() {
   if (!isConnected) {
     return (
       <div className="text-center py-20">
-        <div className="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-6">
-          <BarChart3 className="w-12 h-12 text-purple-400" />
+        <div className="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-teal-500/20 to-pink-500/20 flex items-center justify-center mb-6">
+          <BarChart3 className="w-12 h-12 text-teal-400" />
         </div>
         <h2 className="text-3xl font-bold mb-4 text-white">Analytics Dashboard</h2>
         <p className="text-gray-400 max-w-md mx-auto">
@@ -274,7 +274,7 @@ export function AnalyticsDashboard() {
                 onClick={() => setTimeRange(range)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   timeRange === range
-                    ? 'bg-purple-500/20 text-purple-400'
+                    ? 'bg-teal-500/20 text-teal-400'
                     : 'text-gray-400 hover:text-white'
                 }`}
               >
@@ -310,7 +310,7 @@ export function AnalyticsDashboard() {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 rounded-2xl p-6 border border-red-500/20">
+        <div className="bg-gradient-to-br from-red-500/10 to-emerald-500/10 rounded-2xl p-6 border border-red-500/20">
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-gray-400 flex items-center gap-2">
               <ArrowUpRight className="w-4 h-4 text-red-400" />
@@ -329,7 +329,7 @@ export function AnalyticsDashboard() {
         <div className={`bg-gradient-to-br rounded-2xl p-6 border ${
           analytics.netFlow >= 0n 
             ? 'from-green-500/10 to-emerald-500/10 border-green-500/20' 
-            : 'from-red-500/10 to-orange-500/10 border-red-500/20'
+            : 'from-red-500/10 to-emerald-500/10 border-red-500/20'
         }`}>
           <div className="flex items-center justify-between mb-2">
             <p className="text-sm text-gray-400 flex items-center gap-2">
@@ -352,7 +352,7 @@ export function AnalyticsDashboard() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-purple-400" />
+              <TrendingUp className="w-5 h-5 text-teal-400" />
               Volume Over Time
             </h3>
             <p className="text-sm text-gray-500">Total value locked in streams</p>
@@ -367,7 +367,7 @@ export function AnalyticsDashboard() {
             >
               <div className="w-full relative">
                 <div
-                  className="w-full bg-gradient-to-t from-purple-500/50 to-purple-400/80 rounded-t-lg transition-all duration-500 group-hover:from-purple-400/70 group-hover:to-purple-300"
+                  className="w-full bg-gradient-to-t from-teal-500/50 to-teal-400/80 rounded-t-lg transition-all duration-500 group-hover:from-teal-400/70 group-hover:to-purple-300"
                   style={{ height: `${(point.value / maxVolume) * 160}px` }}
                 />
                 <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
@@ -475,7 +475,7 @@ export function AnalyticsDashboard() {
                     {hoveredStream === stream.streamId && stream.isActive && (
                       <Link
                         to="/app/streams"
-                        className="absolute right-2 top-2 text-xs text-purple-400 hover:text-purple-300"
+                        className="absolute right-2 top-2 text-xs text-teal-400 hover:text-teal-300"
                       >
                         View →
                       </Link>
@@ -488,7 +488,7 @@ export function AnalyticsDashboard() {
           {analytics.activityData.length > 10 && (
             <Link
               to="/app/streams"
-              className="block text-center mt-4 text-purple-400 hover:text-purple-300 text-sm"
+              className="block text-center mt-4 text-teal-400 hover:text-teal-300 text-sm"
             >
               View all {analytics.activityData.length} streams →
             </Link>
@@ -580,8 +580,8 @@ function StatCard({
 }) {
   const colorClasses: Record<string, string> = {
     green: 'from-green-500/20 to-emerald-500/20 border-green-500/30',
-    red: 'from-red-500/20 to-orange-500/20 border-red-500/30',
-    purple: 'from-purple-500/20 to-pink-500/20 border-purple-500/30',
+    red: 'from-red-500/20 to-emerald-500/20 border-red-500/30',
+    purple: 'from-teal-500/20 to-pink-500/20 border-teal-500/30',
     blue: 'from-blue-500/20 to-cyan-500/20 border-blue-500/30',
   };
 

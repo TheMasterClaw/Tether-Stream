@@ -220,7 +220,7 @@ export function WalletDashboard() {
 
       {/* Marketplace Stats */}
       {totalMarketplaceVolume > 0n && (
-        <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
+        <div className="bg-gradient-to-r from-teal-500/10 to-pink-500/10 rounded-2xl p-6 border border-teal-500/20">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-400 mb-1">Marketplace Volume</p>
@@ -230,7 +230,7 @@ export function WalletDashboard() {
             </div>
             <Link 
               to="/app/marketplace"
-              className="px-4 py-2 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded-lg font-medium hover:bg-purple-500/30 transition-all"
+              className="px-4 py-2 bg-teal-500/20 text-teal-400 border border-teal-500/30 rounded-lg font-medium hover:bg-teal-500/30 transition-all"
             >
               Explore
             </Link>
@@ -354,7 +354,7 @@ export function WalletDashboard() {
       <div className="grid md:grid-cols-3 gap-4">
         <Link
           to="/app/create"
-          className="p-6 bg-gradient-to-br from-[var(--color-cta)]/10 to-orange-500/10 border border-[var(--color-cta)]/20 rounded-2xl hover:border-[var(--color-cta)]/40 transition-all group cursor-pointer hover:shadow-lg hover:shadow-orange-500/10"
+          className="p-6 bg-gradient-to-br from-[var(--color-cta)]/10 to-emerald-500/10 border border-[var(--color-cta)]/20 rounded-2xl hover:border-[var(--color-cta)]/40 transition-all group cursor-pointer hover:shadow-lg hover:shadow-emerald-500/10"
         >
           <div className="w-10 h-10 rounded-lg bg-[var(--color-cta)]/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
             <Plus className="w-5 h-5 text-[var(--color-cta)]" />
@@ -378,14 +378,14 @@ export function WalletDashboard() {
           href="https://faucet.circle.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-6 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-2xl hover:border-purple-500/40 transition-all group cursor-pointer block hover:shadow-lg hover:shadow-purple-500/10"
+          className="p-6 bg-gradient-to-br from-teal-500/10 to-pink-500/10 border border-teal-500/20 rounded-2xl hover:border-teal-500/40 transition-all group cursor-pointer block hover:shadow-lg hover:shadow-teal-500/10"
         >
-          <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-            <Droplets className="w-5 h-5 text-purple-400" />
+          <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+            <Droplets className="w-5 h-5 text-teal-400" />
           </div>
           <h3 className="font-semibold mb-1 text-white">Faucet</h3>
           <p className="text-sm text-gray-400">
-            <span className="text-purple-400 group-hover:underline inline-flex items-center gap-1">
+            <span className="text-teal-400 group-hover:underline inline-flex items-center gap-1">
               Get test USDT
               <ArrowUpRight className="w-3 h-3" />
             </span>
@@ -416,13 +416,13 @@ function FeatureCard({
   color: 'orange' | 'blue' | 'green';
 }) {
   const colorClasses = {
-    orange: 'from-[var(--color-cta)]/20 to-orange-500/20 border-[var(--color-cta)]/30',
+    emerald: 'from-[var(--color-cta)]/20 to-emerald-500/20 border-[var(--color-cta)]/30',
     blue: 'from-[var(--color-primary)]/20 to-blue-500/20 border-[var(--color-primary)]/30',
     green: 'from-green-500/20 to-emerald-500/20 border-green-500/30',
   };
 
   const iconColors = {
-    orange: 'text-[var(--color-cta)]',
+    emerald: 'text-[var(--color-cta)]',
     blue: 'text-[var(--color-primary)]',
     green: 'text-green-400',
   };
@@ -454,10 +454,10 @@ function StatCard({
   isLoading: boolean;
 }) {
   const colorClasses: Record<string, string> = {
-    orange: 'from-[var(--color-cta)]/20 to-orange-500/20 border-[var(--color-cta)]/30',
+    emerald: 'from-[var(--color-cta)]/20 to-emerald-500/20 border-[var(--color-cta)]/30',
     blue: 'from-[var(--color-primary)]/20 to-blue-500/20 border-[var(--color-primary)]/30',
     green: 'from-green-500/20 to-emerald-500/20 border-green-500/30',
-    purple: 'from-purple-500/20 to-pink-500/20 border-purple-500/30',
+    purple: 'from-teal-500/20 to-pink-500/20 border-teal-500/30',
   };
 
   return (

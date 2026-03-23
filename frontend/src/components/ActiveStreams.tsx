@@ -455,7 +455,7 @@ export function ActiveStreams() {
                       <button
                         onClick={() => handleWithdraw(stream.streamId)}
                         disabled={isWithdrawing}
-                        className="px-4 py-2 gradient-cta rounded-lg font-medium text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                        className="px-4 py-2 gradient-cta rounded-lg font-medium text-white hover:shadow-lg hover:shadow-emerald-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                       >
                         {isWithdrawing ? (
                           <span className="flex items-center gap-2">
@@ -522,7 +522,7 @@ export function ActiveStreams() {
           </p>
           <a
             href="#/app/create"
-            className="inline-flex items-center gap-2 px-8 py-4 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
           >
             <Zap className="w-5 h-5" />
             Create Your First Stream

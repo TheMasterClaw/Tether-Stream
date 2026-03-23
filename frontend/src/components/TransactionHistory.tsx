@@ -180,7 +180,7 @@ export function TransactionHistory() {
       case 'created': return { icon: Zap, color: 'text-blue-400', bg: 'bg-blue-500/20' };
       case 'withdrawn': return { icon: ArrowDownRight, color: 'text-green-400', bg: 'bg-green-500/20' };
       case 'cancelled': return { icon: XCircle, color: 'text-red-400', bg: 'bg-red-500/20' };
-      case 'completed': return { icon: CheckCircle, color: 'text-purple-400', bg: 'bg-purple-500/20' };
+      case 'completed': return { icon: CheckCircle, color: 'text-teal-400', bg: 'bg-teal-500/20' };
       default: return { icon: Clock, color: 'text-gray-400', bg: 'bg-gray-500/20' };
     }
   };

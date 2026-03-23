@@ -87,7 +87,7 @@ const Hero = () => (
     {/* Background decoration */}
     <div className="absolute inset-0 -z-10">
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-100/50 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-orange-100/50 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-emerald-500/10 rounded-full blur-3xl" />
     </div>
     
     <div className="container-custom">

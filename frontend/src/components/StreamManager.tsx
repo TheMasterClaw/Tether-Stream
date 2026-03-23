@@ -174,17 +174,17 @@ export function StreamManager() {
         </div>
 
         {templateId && (
-          <div className="mb-6 p-4 bg-purple-500/20 border border-purple-500/30 rounded-xl flex items-center justify-between">
+          <div className="mb-6 p-4 bg-teal-500/20 border border-teal-500/30 rounded-xl flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Sparkles className="w-5 h-5 text-purple-400" />
+              <Sparkles className="w-5 h-5 text-teal-400" />
               <div>
-                <p className="text-sm text-purple-400">Using Template</p>
+                <p className="text-sm text-teal-400">Using Template</p>
                 <p className="font-medium text-white">{templateNames[templateId] || 'Custom Template'}</p>
               </div>
             </div>
             <Link
               to="/app/templates"
-              className="text-sm text-purple-400 hover:text-purple-300"
+              className="text-sm text-teal-400 hover:text-teal-300"
             >
               Change Template →
             </Link>

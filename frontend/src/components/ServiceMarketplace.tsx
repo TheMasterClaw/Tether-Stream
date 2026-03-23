@@ -189,7 +189,7 @@ export function ServiceMarketplace() {
           </button>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="px-6 py-3 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all inline-flex items-center gap-2 cursor-pointer"
+            className="px-6 py-3 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-emerald-500/25 transition-all inline-flex items-center gap-2 cursor-pointer"
           >
             <Plus className="w-5 h-5" />
             Register Service
@@ -343,7 +343,7 @@ export function ServiceMarketplace() {
 
                     <button
                       onClick={() => handleStartStream(service)}
-                      className="px-4 py-2 gradient-cta rounded-lg font-medium text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all cursor-pointer"
+                      className="px-4 py-2 gradient-cta rounded-lg font-medium text-white hover:shadow-lg hover:shadow-emerald-500/25 transition-all cursor-pointer"
                     >
                       {service.billingType === 0 ? 'Start Stream' : 'Pay Now'}
                     </button>
@@ -378,7 +378,7 @@ export function ServiceMarketplace() {
           ) : (
             <button
               onClick={() => setShowCreateModal(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
             >
               <Plus className="w-5 h-5" />
               Register First Service
@@ -575,7 +575,7 @@ function CreateServiceModal({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="w-full py-4 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-emerald-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center gap-2">

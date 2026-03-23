@@ -192,7 +192,7 @@ export function LivePaymentTicker() {
       case 'created': return 'bg-blue-500/90 text-white';
       case 'withdrawn': return 'bg-green-500/90 text-white';
       case 'cancelled': return 'bg-orange-500/90 text-white';
-      case 'completed': return 'bg-purple-500/90 text-white';
+      case 'completed': return 'bg-teal-500/90 text-white';
       default: return 'bg-gray-500/90 text-white';
     }
   };

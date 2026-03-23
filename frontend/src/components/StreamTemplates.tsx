@@ -35,8 +35,8 @@ const templates: StreamTemplate[] = [
     name: 'AI Agent Service',
     description: 'Pay for AI inference services per second of compute time',
     icon: Bot,
-    iconColor: 'text-purple-400',
-    gradient: 'from-purple-500/20 to-pink-500/20 border-purple-500/30',
+    iconColor: 'text-teal-400',
+    gradient: 'from-teal-500/20 to-pink-500/20 border-teal-500/30',
     defaultRecipient: '',
     defaultAmount: '50',
     defaultDuration: '3600',
@@ -65,7 +65,7 @@ const templates: StreamTemplate[] = [
     description: 'Stream payments for premium content consumption',
     icon: Video,
     iconColor: 'text-red-400',
-    gradient: 'from-red-500/20 to-orange-500/20 border-red-500/30',
+    gradient: 'from-red-500/20 to-emerald-500/20 border-red-500/30',
     defaultRecipient: '',
     defaultAmount: '10',
     defaultDuration: '3600',
@@ -106,8 +106,8 @@ const templates: StreamTemplate[] = [
     name: 'Custom Stream',
     description: 'Create a completely custom payment stream',
     icon: Zap,
-    iconColor: 'text-amber-400',
-    gradient: 'from-amber-500/20 to-yellow-500/20 border-amber-500/30',
+    iconColor: 'text-emerald-400',
+    gradient: 'from-emerald-500/20 to-green-500/20 border-emerald-500/30',
     defaultRecipient: '',
     defaultAmount: '',
     defaultDuration: '3600',
@@ -144,9 +144,9 @@ export function StreamTemplates() {
           </h2>
           <p className="text-gray-400">Quick-start presets for common payment scenarios</p>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 bg-purple-500/10 rounded-full border border-purple-500/20">
-          <Sparkles className="w-4 h-4 text-purple-400" />
-          <span className="text-sm text-purple-400">{templates.length} templates available</span>
+        <div className="flex items-center gap-2 px-4 py-2 bg-teal-500/10 rounded-full border border-teal-500/20">
+          <Sparkles className="w-4 h-4 text-teal-400" />
+          <span className="text-sm text-teal-400">{templates.length} templates available</span>
         </div>
       </div>
 
@@ -167,7 +167,7 @@ export function StreamTemplates() {
               }`}
             >
               {template.popular && (
-                <div className="absolute -top-2 -right-2 px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-xs font-semibold text-white shadow-lg">
+                <div className="absolute -top-2 -right-2 px-3 py-1 bg-gradient-to-r from-teal-500 to-pink-500 rounded-full text-xs font-semibold text-white shadow-lg">
                   Popular
                 </div>
               )}

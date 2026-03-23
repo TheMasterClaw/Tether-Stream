@@ -120,7 +120,7 @@ export function WDKAgentWallets() {
         </div>
         <button
           onClick={() => setShowCreate(true)}
-          className="flex items-center gap-2 px-6 py-3 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all cursor-pointer"
+          className="flex items-center gap-2 px-6 py-3 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-emerald-500/25 transition-all cursor-pointer"
         >
           <Plus className="w-5 h-5" />
           Create Agent Wallet
@@ -205,7 +205,7 @@ export function WDKAgentWallets() {
               <button
                 onClick={handleCreateWallet}
                 disabled={!walletName.trim()}
-                className="flex-1 py-3 gradient-cta rounded-xl text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-orange-500/25 transition-all cursor-pointer"
+                className="flex-1 py-3 gradient-cta rounded-xl text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-emerald-500/25 transition-all cursor-pointer"
               >
                 Generate Wallet (WDK)
               </button>
@@ -294,7 +294,7 @@ export function WDKAgentWallets() {
             </p>
             <button
               onClick={() => setShowCreate(true)}
-              className="inline-flex items-center gap-2 px-8 py-4 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-orange-500/25 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-8 py-4 gradient-cta rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-emerald-500/25 transition-all cursor-pointer"
             >
               <Plus className="w-5 h-5" />
               Create First Agent Wallet
@@ -321,7 +321,7 @@ export function WDKAgentWallets() {
                 onClick={() => handleToggleStatus(details.id)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer ${
                   details.status === 'active'
-                    ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30 hover:bg-amber-500/30'
+                    ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 hover:bg-yellow-500/30'
                     : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/30'
                 }`}
               >

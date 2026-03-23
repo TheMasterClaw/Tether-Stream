@@ -36,7 +36,7 @@ const initialDemoStreams: DemoStream[] = [
     id: 'demo-ai',
     name: 'AI GPT-4 Inference',
     icon: Bot,
-    iconColor: 'text-purple-400',
+    iconColor: 'text-teal-400',
     ratePerSecond: 0.0001,
     duration: 3600,
     recipient: '0xAI...4F21',
@@ -150,7 +150,7 @@ export function DemoMode() {
             <h1 className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
               Demo Mode
             </h1>
-            <span className="px-3 py-1 bg-purple-500/20 text-purple-400 text-sm font-medium rounded-full border border-purple-500/30">
+            <span className="px-3 py-1 bg-teal-500/20 text-teal-400 text-sm font-medium rounded-full border border-teal-500/30">
               Simulation
             </span>
           </div>
@@ -182,9 +182,9 @@ export function DemoMode() {
 
       {/* Info Banner */}
       {showInfo && (
-        <div className="p-4 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-2xl border border-purple-500/20">
+        <div className="p-4 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-2xl border border-teal-500/20">
           <div className="flex items-start gap-3">
-            <Info className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+            <Info className="w-5 h-5 text-teal-400 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
               <p className="text-gray-300 text-sm">
                 This is a <strong className="text-white">simulated environment</strong>. 
@@ -400,7 +400,7 @@ function StatCard({
   pulse?: boolean;
 }) {
   const colorClasses: Record<string, string> = {
-    purple: 'from-purple-500/20 to-pink-500/20 border-purple-500/30',
+    purple: 'from-teal-500/20 to-pink-500/20 border-teal-500/30',
     green: 'from-green-500/20 to-emerald-500/20 border-green-500/30',
     blue: 'from-blue-500/20 to-cyan-500/20 border-blue-500/30',
     amber: 'from-amber-500/20 to-yellow-500/20 border-amber-500/30',
